@@ -3,10 +3,15 @@ var http = require('http');
 var bodyParser = require('body-parser');
 var app = express();
 var router = require('./router');
+var mongoose = require('mongoose');
 
 
 
+//DB Connection
+mongoose.connect('mongodb://localhost:bucket/bucket');
 
+
+//Middleware
 app.use(bodyParser.json({ type: '*/*'}));
 router(app);
 
