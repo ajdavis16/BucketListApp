@@ -1,12 +1,17 @@
 // include the authorization controller
 var Auth = require('./controllers/auth');
-// include the user model
-var User = require('./models/user');
+var passportService = require('./services/passport');
+var passport = require('passport');
 
-
+var requireAuth = passport.authenticate('jwt', {session: false});
 
 
 // sets routes
 module.exports = function(app){
-	app.post('/signup', Auth.signup)
+	app.get('/', requireAuth, function(req, res){
+		res.send('Hello Homepage');
+		//res.send({hi: 'there'});
+	});
+
+	app.post('/signup', Auth.signup);
 }
