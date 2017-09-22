@@ -9,7 +9,7 @@ var requireSignin = passport.authenticate('local', {session: false});
 // sets routes
 module.exports = function(app){
 	app.get('/', requireAuth, function(req, res){
-		res.send('Hello Homepage');
+		res.send({message:'hey'});
 		//res.send({hi: 'there'});
 	});
 
