@@ -3,34 +3,29 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import YTSearch from 'youtube-api-search';
 import SearchBar from './search-bar';
-import VideoDetail from './video-detail'
+import VideoDetail from './video-detail';
 
-const API_KEY = 'AIzaSyBh7FOaYJE9S-Xwas4YF2HQL9fBRa4NO_c';
+const API_KEY = 'AIzaSyDjtFukI0pv7QB2lyz98HbRIeDJK7OeRHI';
 
 class Video extends Component {
 	constructor(props) {
 		super(props);
-		this.state = { 
+		this.state = {
 			videos: [],
 			selectedVideo: null
 		};
-
 		this.videoSearch('bucketlist');
 	}
-
 	videoSearch(term) {
 		YTSearch({key: API_KEY, term: term}, (videos) => {
-			console.log(videos);
-			this.setState({ 
+			this.setState({
 				videos: videos,
 				selectedVideo: videos[0]
 			});
 		});
 	}
-
 	render() {
-		const videoSearch = _.debounce((term)=>{ this.videoSearch(term) }, 1800);
-
+		const videoSearch = _.debounce((term) => {this.videoSearch(term)}, 300);
 		return (
 			<div>
 				<SearchBar onSearchTermChange={videoSearch} />

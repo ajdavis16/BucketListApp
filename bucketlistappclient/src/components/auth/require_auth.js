@@ -13,7 +13,7 @@ export default function(ComposedComponent) {
       }
     }
 
-    componentWillUpdate(nextProps) {
+    comonentWillUpdate(nextProps) {
       if (!nextProps.authenticated) {
         this.context.router.push('/');
       }

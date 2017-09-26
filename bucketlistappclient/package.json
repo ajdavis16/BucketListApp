@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js"
   },
-  "author": "",
+  "author": "Andrew Davis",
   "license": "ISC",
   "devDependencies": {
     "babel-core": "^6.2.1",
@@ -20,6 +20,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "babel-preset-stage-1": "^6.1.18",
+    "lodash": "^4.17.4",
     "react": "^0.14.9",
     "react-bootstrap": "^0.31.3",
     "react-dom": "^0.14.9",
